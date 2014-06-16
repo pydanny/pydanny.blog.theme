@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+<section id="content">
+        <article>
+                <header>
+                        <h1 class="article-title">
+                                <a href="{{ pagename }}"
+                                        rel="bookmark"
+                                        title="Permalink to {{ article.title }}">
+                                        {{ article.title}}
+                                </a>
+                                {% include 'twitter.html' %}
+                        </h1>
+                </header>
+
+                <p>
+                    <em>{{ article.locale_date }}</em>
+                    (<a href="{{ pagename }}" rel="bookmark" title="Permalink to {{ article.title }}">permalink</a>)
+                </p>
+
+                <div class="entry-content">
+                    {{ article.content }}
+                    <div class="article-info">
+                            {% include 'article_infos.html' %}
+                    </div>
+                </div><!-- /.entry-content -->
+                {% if DISQUS_SITENAME %}
+                <hr/>
+                <div class="comments">
+                <h3>Comments</h3>
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                           var disqus_identifier = "{{ article.url }}";
+                           (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] ||
+                                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+                          })();
+                        </script>
+                </div>
+                {% endif %}
+        </article>
+</section>
+{% endblock %}

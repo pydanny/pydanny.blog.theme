@@ -1,0 +1,42 @@
+<ul class="nav nav-list">
+{% if LINKS %}
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+{% for name, link in LINKS %}
+    <li><a href="{{ link }}"><i class="icon-external-link"></i>{{ name }}</a></li>
+{% endfor %}
+{% endif %}
+</ul>
+
+<h4>Two Scoops of Django</h4>
+
+<p><a href="http://twoscoopspress.com/products/two-scoops-of-django-1-6">My new book</a> about Django best practices is in print!</p>
+
+<a href="http://twoscoopspress.com/products/two-scoops-of-django-1-6"><img class="two-scoops-cover-thumb" src="http://twoscoops.smugmug.com/Two-Scoops-Press-Media-Kit/i-rsBrvzb/0/S/1.6-cover-693x855-S.png" /></a>
+
+{% if SOCIAL %}
+<h4 class="nav-header">Follow Me</h4>
+{% for name, link in SOCIAL %}
+    <p class="capitalize"><i class="icon-{{ name }} icon-large"></i> <a href="{{ link }}">{{ name.replace("-sign", "") }}</a></p>
+{% endfor %}
+{% endif %}
+
+<h4>Subscribe To My Feed</h4>
+
+<p>
+While you're here, why not add my <a href="{{ SITEURL }}/feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
+
+<h4 class="nav-header">Tags</h4>
+{% for tag in tag_cloud %}
+<span class="tag-{{ tag.1 }}">
+    <a href="{{ SITEURL }}/{{ tag.0.url }}">
+        {{ tag.0 }}
+    </a>
+</span>
+{% endfor %}
+
+{% include 'search_sidebar.html' %}
+
+{% if SIDEBAR_CUSTOM %}
+    {{ SIDEBAR_CUSTOM }}
+{% endif %}

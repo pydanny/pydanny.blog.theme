@@ -1,0 +1,11 @@
+<footer class="post-info">
+
+{% if PDF_PROCESSOR %}
+<p>
+    <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+</p>
+{% endif %}
+
+{% include 'taglist.html' %}
+{% include 'translations.html' %}
+</footer><!-- /.post-info -->

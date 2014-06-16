@@ -1,0 +1,6 @@
+{% if article.tags %}
+Tags:
+{% for tag in article.tags %}
+	<a href="{{ SITEURL }}/{{ tag.url }}"><em>{{ tag }}</em></a>
+{% endfor %}
+{% endif %}
