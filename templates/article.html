@@ -23,7 +23,19 @@
                     <div class="article-info">
                             {% include 'article_infos.html' %}
                     </div>
+                    <hr>
+                    <h3>Subscribe!</h3>
+                    <p>If you read this far, you might want to follow me on <a href="https://twitter.com/pydanny">twitter</a> or <a href="https://github.com/pydanny">github</a> and subscribe via email below (I'll email you new articles when I publish them).</p>
+                    <!-- Begin MailChimp Signup Form -->
+                    <form action="https://twoscoopspress.us3.list-manage.com/subscribe/post?u=fa4086aff224c72873eb7f30c&amp;id=4f29855488" class="mailchimp-subscribe form-inline" method="post" role="form">
+
+                        <input class="form-control" type="email" name="EMAIL" placeholder="Email Address" size="20" required="">
+                      <button type="submit" class="btn">Subscribe</button>
+                    </form>
+
+                    <!--End mc_embed_signup-->
                 </div><!-- /.entry-content -->
+
                 {% if DISQUS_SITENAME %}
                 <hr/>
                 <div class="comments">
@@ -34,7 +46,7 @@
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
-                                dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+                                dsq.src = 'https://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
                                 (document.getElementsByTagName('head')[0] ||
                                  document.getElementsByTagName('body')[0]).appendChild(dsq);
                           })();
